@@ -20,6 +20,7 @@
 #           of the pet and classifier labels as the item at index 2 of the list.
 
 from classifier import classifier
+import os.path
 
 
 def classify_images(images_dir, results_dic, model):
@@ -58,23 +59,20 @@ def classify_images(images_dir, results_dic, model):
      Returns:
            None - results_dic is mutable data type so no return needed.
     """
-    for image_filename in results_dic:
-        # Get the full path of the image file
-        image_path = os.path.join(images_dir, image_filename)
-
+    for filename, dictvalue in results_dic.items():
         # Use the classifier function to get the classifier label
-        classifier_label = classifier(image_path, model)
+        classifier_label = classifier(os.path.join(images_dir, filename), model)
 
         # Format the classifier label to match the pet image label
         classifier_label = classifier_label.lower().strip()
 
         # Get the pet image label from the results dictionary
-        pet_label = results_dic[image_filename][0]
+        truth = dictvalue[0]
 
         # Check if the classifier label matches the pet image label
-        if pet_label in classifier_label:
+        if truth in classifier_label:
             # Add the classifier label and match indicator to the results dictionary
-            results_dic[image_filename].extend([classifier_label, 1])
+            dictvalue.extend([classifier_label, 1])
         else:
             # Add the classifier label and mismatch indicator to the results dictionary
-            results_dic[image_filename].extend([classifier_label, 0])
+            dictvalue.extend([classifier_label, 0])

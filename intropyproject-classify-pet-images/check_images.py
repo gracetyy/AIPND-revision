@@ -42,43 +42,36 @@ def main():
     start_time = time()
     sleep(75)
 
+
     in_arg = get_input_args()
 
     # Function that checks command line arguments using in_arg
     check_command_line_arguments(in_arg)
+
 
     results = get_pet_labels(in_arg.dir)
 
     # Function that checks Pet Images in the results Dictionary using results
     check_creating_pet_image_labels(results)
 
-    # TODO 3: Define classify_images function within the file classify_images.py
-    # Once the classify_images function has been defined replace first 'None'
-    # in the function call with in_arg.dir and replace the last 'None' in the
-    # function call with in_arg.arch  Once you have done the replacements your
-    # function call should look like this:
-    #             classify_images(in_arg.dir, results, in_arg.arch)
+
     # Creates Classifier Labels with classifier function, Compares Labels,
     # and adds these results to the results dictionary - results
-    classify_images(None, results, None)
+    classify_images(in_arg.dir, results, in_arg.arch)
 
-    # Function that checks Results Dictionary using results
-    check_classifying_images(results)
+    # Function that checks Results Dictionary using results    
+    check_classifying_images(results)   
 
-    # TODO 4: Define adjust_results4_isadog function within the file adjust_results4_isadog.py
-    # Once the adjust_results4_isadog function has been defined replace 'None'
-    # in the function call with in_arg.dogfile  Once you have done the
-    # replacements your function call should look like this:
-    #          adjust_results4_isadog(results, in_arg.dogfile)
+
     # Adjusts the results dictionary to determine if classifier correctly
     # classified images as 'a dog' or 'not a dog'. This demonstrates if
     # model can correctly classify dog images as dogs (regardless of breed)
-    adjust_results4_isadog(results, None)
+    adjust_results4_isadog(results, in_arg.dogfile)
 
     # Function that checks Results Dictionary for is-a-dog adjustment using results
     check_classifying_labels_as_dogs(results)
 
-    # TODO 5: Define calculates_results_stats function within the file calculates_results_stats.py
+
     # This function creates the results statistics dictionary that contains a
     # summary of the results statistics (this includes counts & percentages). This
     # dictionary is returned from the function call as the variable results_stats

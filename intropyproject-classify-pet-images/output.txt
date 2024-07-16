@@ -1,0 +1,69 @@
+
+(base) C:\Users\Grace>cd C:\Users\Grace\Dev\AIPND-revision\intropyproject-classify-pet-images\
+
+(base) C:\Users\Grace\Dev\AIPND-revision\intropyproject-classify-pet-images>run_models_batch.bat
+
+(base) C:\Users\Grace\Dev\AIPND-revision\intropyproject-classify-pet-images>python check_images.py --dir pet_images/ --arch resnet  --dogfile dognames.txt  1>resnet_pet-images.txt
+C:\Users\Grace\AppData\Roaming\Python\Python312\site-packages\torchvision\models\_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+C:\Users\Grace\AppData\Roaming\Python\Python312\site-packages\torchvision\models\_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet18_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet18_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Downloading: "https://download.pytorch.org/models/resnet18-f37072fd.pth" to C:\Users\Grace/.cache\torch\hub\checkpoints\resnet18-f37072fd.pth
+100%|█████████████████████████████████████████████████████████████████████████████████| 44.7M/44.7M [00:03<00:00, 12.5MB/s]
+C:\Users\Grace\AppData\Roaming\Python\Python312\site-packages\torchvision\models\_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Downloading: "https://download.pytorch.org/models/alexnet-owt-7be5be79.pth" to C:\Users\Grace/.cache\torch\hub\checkpoints\alexnet-owt-7be5be79.pth
+100%|███████████████████████████████████████████████████████████████████████████████████| 233M/233M [00:17<00:00, 13.7MB/s]
+C:\Users\Grace\AppData\Roaming\Python\Python312\site-packages\torchvision\models\_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Downloading: "https://download.pytorch.org/models/vgg16-397923af.pth" to C:\Users\Grace/.cache\torch\hub\checkpoints\vgg16-397923af.pth
+100%|███████████████████████████████████████████████████████████████████████████████████| 528M/528M [00:48<00:00, 11.4MB/s]
+Traceback (most recent call last):
+  File "C:\Users\Grace\Dev\AIPND-revision\intropyproject-classify-pet-images\check_images.py", line 109, in <module>
+    main()
+  File "C:\Users\Grace\Dev\AIPND-revision\intropyproject-classify-pet-images\check_images.py", line 49, in main
+    check_command_line_arguments(in_arg)
+  File "C:\Users\Grace\Dev\AIPND-revision\intropyproject-classify-pet-images\print_functions_for_lab_checks.py", line 37, in check_command_line_arguments
+    "\n    arch =", in_arg.arch, "\n dogfile =", in_arg.dogfile)
+                    ^^^^^^^^^^^
+AttributeError: 'Namespace' object has no attribute 'arch'
+
+(base) C:\Users\Grace\Dev\AIPND-revision\intropyproject-classify-pet-images>python check_images.py --dir pet_images/ --arch alexnet --dogfile dognames.txt  1>alexnet_pet-images.txt
+C:\Users\Grace\AppData\Roaming\Python\Python312\site-packages\torchvision\models\_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+C:\Users\Grace\AppData\Roaming\Python\Python312\site-packages\torchvision\models\_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet18_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet18_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+C:\Users\Grace\AppData\Roaming\Python\Python312\site-packages\torchvision\models\_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+C:\Users\Grace\AppData\Roaming\Python\Python312\site-packages\torchvision\models\_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Traceback (most recent call last):
+  File "C:\Users\Grace\Dev\AIPND-revision\intropyproject-classify-pet-images\check_images.py", line 109, in <module>
+    main()
+  File "C:\Users\Grace\Dev\AIPND-revision\intropyproject-classify-pet-images\check_images.py", line 49, in main
+    check_command_line_arguments(in_arg)
+  File "C:\Users\Grace\Dev\AIPND-revision\intropyproject-classify-pet-images\print_functions_for_lab_checks.py", line 37, in check_command_line_arguments
+    "\n    arch =", in_arg.arch, "\n dogfile =", in_arg.dogfile)
+                    ^^^^^^^^^^^
+AttributeError: 'Namespace' object has no attribute 'arch'
+
+(base) C:\Users\Grace\Dev\AIPND-revision\intropyproject-classify-pet-images>python check_images.py --dir pet_images/ --arch vgg  --dogfile dognames.txt  1>vgg_pet-images.txt
+C:\Users\Grace\AppData\Roaming\Python\Python312\site-packages\torchvision\models\_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+C:\Users\Grace\AppData\Roaming\Python\Python312\site-packages\torchvision\models\_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet18_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet18_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+C:\Users\Grace\AppData\Roaming\Python\Python312\site-packages\torchvision\models\_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+C:\Users\Grace\AppData\Roaming\Python\Python312\site-packages\torchvision\models\_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Traceback (most recent call last):
+  File "C:\Users\Grace\Dev\AIPND-revision\intropyproject-classify-pet-images\check_images.py", line 109, in <module>
+    main()
+  File "C:\Users\Grace\Dev\AIPND-revision\intropyproject-classify-pet-images\check_images.py", line 49, in main
+    check_command_line_arguments(in_arg)
+  File "C:\Users\Grace\Dev\AIPND-revision\intropyproject-classify-pet-images\print_functions_for_lab_checks.py", line 37, in check_command_line_arguments
+    "\n    arch =", in_arg.arch, "\n dogfile =", in_arg.dogfile)
+                    ^^^^^^^^^^^
+AttributeError: 'Namespace' object has no attribute 'arch'
+
+(base) C:\Users\Grace\Dev\AIPND-revision\intropyproject-classify-pet-images>

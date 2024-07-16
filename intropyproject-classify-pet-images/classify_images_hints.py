@@ -71,7 +71,28 @@ def classify_images(images_dir, results_dic, model):
     # that indicates the folder and the filename (key) to be used in the 
     # classifier function
     for key in results_dic:
-       
+      # Set the path to the image file
+      image_file = os.path.join(images_dir, key)
+
+      # Use the classifier function to classify the image
+      model_label = classifier(image_file, model)
+
+      # Convert the model_label to lowercase and remove whitespace
+      model_label = model_label.lower().strip()
+
+      # Add the classifier label and the match value to the results_dic dictionary
+      results_dic[key].extend([model_label, int(truth == model_label)])
+
+      # If the pet image label is found within the classifier label list of terms
+      # as an exact match to one of the terms in the list, then they are added to 
+      # results_dic as an exact match (1) using the extend list function
+      if truth in model_label:
+        results_dic[key].extend([model_label, 1])
+
+      # If not found, then added to results dictionary as NOT a match (0) using
+      # the extend function
+      else:
+        results_dic[key].extend([model_label, 0])
        # TODO: 3a. Set the string variable model_label to be the string that's 
        #           returned from using the classifier function instead of the   
        #           empty string below.

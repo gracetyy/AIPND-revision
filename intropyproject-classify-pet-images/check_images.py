@@ -40,28 +40,24 @@ from print_results import print_results
 # Main program function defined below
 def main():
     start_time = time()
-    sleep(75)
-
+    sleep(5)
 
     in_arg = get_input_args()
 
     # Function that checks command line arguments using in_arg
     check_command_line_arguments(in_arg)
 
-
     results = get_pet_labels(in_arg.dir)
 
     # Function that checks Pet Images in the results Dictionary using results
     check_creating_pet_image_labels(results)
 
-
     # Creates Classifier Labels with classifier function, Compares Labels,
     # and adds these results to the results dictionary - results
     classify_images(in_arg.dir, results, in_arg.arch)
 
-    # Function that checks Results Dictionary using results    
-    check_classifying_images(results)   
-
+    # Function that checks Results Dictionary using results
+    check_classifying_images(results)
 
     # Adjusts the results dictionary to determine if classifier correctly
     # classified images as 'a dog' or 'not a dog'. This demonstrates if
@@ -70,7 +66,6 @@ def main():
 
     # Function that checks Results Dictionary for is-a-dog adjustment using results
     check_classifying_labels_as_dogs(results)
-
 
     # This function creates the results statistics dictionary that contains a
     # summary of the results statistics (this includes counts & percentages). This
@@ -82,14 +77,9 @@ def main():
     # Function that checks Results Statistics Dictionary using results_stats
     check_calculating_results(results, results_stats)
 
-    # TODO 6: Define print_results function within the file print_results.py
-    # Once the print_results function has been defined replace 'None'
-    # in the function call with in_arg.arch  Once you have done the
-    # replacements your function call should look like this:
-    #      print_results(results, results_stats, in_arg.arch, True, True)
     # Prints summary results, incorrect classifications of dogs (if requested)
     # and incorrectly classified breeds (if requested)
-    print_results(results, results_stats, None, True, True)
+    print_results(results, results_stats, in_arg.arch, True, True)
 
     end_time = time()
 
